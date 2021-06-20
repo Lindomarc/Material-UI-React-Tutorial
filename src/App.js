@@ -7,7 +7,6 @@ import SaveIcon from '@material-ui/icons/Save'
 import DeleteIcon from '@material-ui/icons/Delete'
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
-import TextField from '@material-ui/core/TextField'
 
 import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
@@ -16,6 +15,11 @@ import { green, orange } from '@material-ui/core/colors'
 import 'fontsource-roboto';
 
 import Typography from '@material-ui/core/Typography'
+
+import Container from '@material-ui/core/Container'
+
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
 
  
 const useStyles = makeStyles({
@@ -73,48 +77,53 @@ function CheckboxExemple() {
 
 function App() {
   return (
+    <Container maxWidth="md">
+      <ThemeProvider theme={theme}> 
+        <div className="App">
+          <header className="App-header"> 
 
-    <ThemeProvider theme={theme}> 
-      <div className="App">
-        <header className="App-header"> 
-
-        <Typography variant="h2">
-          Welcome to MUI
-        </Typography>
+          <Typography variant="h2" component="div">
+            Welcome to MUI
+          </Typography>
 
 
-        <Typography variant="subtitle1">
-          Learn how to use Material UI
-        </Typography>
-        
-          <ButtonStyled />
-          <TextField 
-            variant="outlined" 
-            color="secondary"
-            type="email"
-            label="the email"
-            placeholder="the email"
-          />
-          <CheckboxExemple />
-          <ButtonGroup variant="contained" color="primary" >
-            <Button 
-              startIcon={<SaveIcon/>}
-              size="large">
-              Save
-            </Button>
-            <Button 
-              startIcon={<DeleteIcon/>}
-              size="large">
-              Discard
-            </Button>
-          </ButtonGroup>
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-        </header>
-      </div>
-    </ThemeProvider>  
+          <Typography variant="subtitle1">
+            Learn how to use Material UI
+          </Typography>
+          
+            <ButtonStyled />
+            <Grid container spacing={2} justify='center'>
+                <Grid item xs={3} sm={6}>
+                  <Paper style={{ height:75, width:'100%', }}/>
+                </Grid>
+                <Grid item xs={3} sm={6}>
+                  <Paper style={{ height:75, width:'100%', }}/>
+                </Grid>
+                <Grid item  xs={3} sm={6}>
+                  <Paper style={{ height:75, width:'100%', }}/>
+                </Grid>
+            </Grid>
+            <CheckboxExemple />
+            <ButtonGroup variant="contained" color="primary" >
+              <Button 
+                startIcon={<SaveIcon/>}
+                size="large">
+                Save
+              </Button>
+              <Button 
+                startIcon={<DeleteIcon/>}
+                size="large">
+                Discard
+              </Button>
+            </ButtonGroup>
+            <img src={logo} className="App-logo" alt="logo" />
+            <p>
+              Edit <code>src/App.js</code> and save to reload.
+            </p>
+          </header>
+        </div>
+      </ThemeProvider>  
+    </Container>
   );
 }
 
